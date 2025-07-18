@@ -143,51 +143,45 @@ function App() {
 
   return (
     <div 
-      className={`min-h-screen bg-black text-green-400 font-mono overflow-x-auto transition-all ${
-        isDragging ? 'bg-amber-400/10' : ''
+      className={`min-h-screen bg-black text-blue-400 font-mono overflow-x-auto transition-all ${
+        isDragging ? 'bg-yellow-400/10' : ''
       }`}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
     >
-      {/* Scanline animation overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-400 to-transparent h-1 animate-pulse"></div>
-      </div>
-      
       {/* Drag overlay */}
       {isDragging && (
-        <div className="fixed inset-0 bg-amber-400/20 border-4 border-dashed border-amber-400 z-50 flex items-center justify-center pointer-events-none">
-          <div className="text-4xl text-amber-400 font-bold">
+        <div className="fixed inset-0 bg-yellow-400/20 border-4 border-dashed border-yellow-400 z-50 flex items-center justify-center pointer-events-none">
+          <div className="text-4xl text-yellow-400 font-bold">
             DROP IMAGE HERE
           </div>
         </div>
       )}
       
-      <div className="container mx-auto px-4 py-8 relative z-10">
+      <div className="container mx-auto px-2 py-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2 text-amber-400 tracking-wider">
-            ▄▄▄ VHS GLITCH LAB ▄▄▄
+        <div className="text-center mb-4">
+          <h1 className="text-2xl font-bold mb-1 text-yellow-400 tracking-wider">
+            VHS GLITCH v2.0
           </h1>
-          <p className="text-blue-400 text-sm">:: ENHANCED RETRO IMAGE PROCESSOR v2.0 ::</p>
         </div>
 
         {/* Global error display */}
         {loadingError && (
-          <div className="mb-6 border border-red-600 bg-red-900/20 p-4 text-red-400 text-sm">
-            <strong>Error:</strong> {loadingError}
+          <div className="mb-4 border border-yellow-400 bg-yellow-400/10 p-2 text-yellow-400 text-xs">
+            ERROR: {loadingError}
           </div>
         )}
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-4">
           {/* Canvas Display */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <ImageCanvas originalImage={originalImage} effects={effects} />
           </div>
 
           {/* Controls */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Image Upload */}
             <ImageUpload 
               onImageLoad={handleImageLoad}
@@ -202,19 +196,6 @@ function App() {
               onReset={resetEffects}
               onPreset={setEffects}
             />
-          </div>
-        </div>
-
-        {/* Instructions */}
-        <div className="mt-8 border border-gray-700 p-4 bg-gray-900/50">
-          <h3 className="text-amber-400 mb-2 text-sm">PERFORMANCE OPTIMIZATIONS:</h3>
-          <div className="text-xs text-gray-400 space-y-1">
-            <p>• Large images (&gt;4096px) are automatically resized for optimal performance</p>
-            <p>• Effects are processed in chunks to prevent browser freezing</p>
-            <p>• Memory usage is monitored and optimized for stability</p>
-            <p>• Real-time processing with debounced updates for smooth interaction</p>
-            <p>• Maximum supported dimensions: 8000×8000px, 50MB file size</p>
-            <p>• Use ANAGLYPH 3D effects with red-blue glasses for stereoscopic viewing</p>
           </div>
         </div>
       </div>

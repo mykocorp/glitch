@@ -54,27 +54,26 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl text-amber-400">▸ EFFECT CONTROLS</h2>
+    <div className="space-y-4">
+      <div className="flex items-center justify-between border-b border-blue-400 pb-1">
+        <h2 className="text-sm text-yellow-400">EFFECTS</h2>
         <button
           onClick={onReset}
-          className="px-3 py-1 border border-red-400 text-red-400 hover:bg-red-400 hover:text-black transition-all text-sm flex items-center gap-1"
+          className="px-2 py-1 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all text-xs"
         >
-          <RotateCcw className="w-4 h-4" />
           RESET
         </button>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {/* Classic VHS Effects */}
-        <div className="border border-gray-700 p-4 bg-gray-900/50">
-          <h3 className="text-blue-400 mb-3 text-sm">CLASSIC VHS:</h3>
+        <div className="border border-blue-400 p-2 bg-black">
+          <h3 className="text-blue-400 mb-2 text-xs">VHS:</h3>
           
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div>
-              <label className="block text-blue-400 mb-1 text-xs">
-                SCANLINES: {effects.scanlines}%
+              <label className="block text-blue-400 text-xs">
+                SCAN {effects.scanlines}
               </label>
               <input
                 type="range"
@@ -82,13 +81,13 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.scanlines}
                 onChange={(e) => onEffectChange('scanlines', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
 
             <div>
-              <label className="block text-blue-400 mb-1 text-xs">
-                CHROMATIC: {effects.chromatic}%
+              <label className="block text-blue-400 text-xs">
+                CHROM {effects.chromatic}
               </label>
               <input
                 type="range"
@@ -96,13 +95,13 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.chromatic}
                 onChange={(e) => onEffectChange('chromatic', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
 
             <div>
-              <label className="block text-blue-400 mb-1 text-xs">
-                COLOR BLEED: {effects.colorBleed}%
+              <label className="block text-blue-400 text-xs">
+                BLEED {effects.colorBleed}
               </label>
               <input
                 type="range"
@@ -110,13 +109,13 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.colorBleed}
                 onChange={(e) => onEffectChange('colorBleed', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
 
             <div>
-              <label className="block text-blue-400 mb-1 text-xs">
-                DIGITAL NOISE: {effects.noise}%
+              <label className="block text-blue-400 text-xs">
+                NOISE {effects.noise}
               </label>
               <input
                 type="range"
@@ -124,13 +123,13 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.noise}
                 onChange={(e) => onEffectChange('noise', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
 
             <div>
-              <label className="block text-blue-400 mb-1 text-xs">
-                PIXELATION: {effects.pixelation}%
+              <label className="block text-blue-400 text-xs">
+                PIXEL {effects.pixelation}
               </label>
               <input
                 type="range"
@@ -138,20 +137,20 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.pixelation}
                 onChange={(e) => onEffectChange('pixelation', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
           </div>
         </div>
 
         {/* Advanced Glitch Effects */}
-        <div className="border border-gray-700 p-4 bg-gray-900/50">
-          <h3 className="text-green-400 mb-3 text-sm">ADVANCED GLITCH:</h3>
+        <div className="border border-blue-400 p-2 bg-black">
+          <h3 className="text-yellow-400 mb-2 text-xs">GLITCH:</h3>
           
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div>
-              <label className="block text-green-400 mb-1 text-xs">
-                DATAMOSH: {effects.datamosh}%
+              <label className="block text-blue-400 text-xs">
+                MOSH {effects.datamosh}
               </label>
               <input
                 type="range"
@@ -159,13 +158,13 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.datamosh}
                 onChange={(e) => onEffectChange('datamosh', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
 
             <div>
-              <label className="block text-green-400 mb-1 text-xs">
-                PIXEL SORT: {effects.pixelSort}%
+              <label className="block text-blue-400 text-xs">
+                SORT {effects.pixelSort}
               </label>
               <input
                 type="range"
@@ -173,13 +172,13 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.pixelSort}
                 onChange={(e) => onEffectChange('pixelSort', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
 
             <div>
-              <label className="block text-green-400 mb-1 text-xs">
-                DISPLACEMENT: {effects.displacement}%
+              <label className="block text-blue-400 text-xs">
+                DISP {effects.displacement}
               </label>
               <input
                 type="range"
@@ -187,13 +186,13 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.displacement}
                 onChange={(e) => onEffectChange('displacement', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
 
             <div>
-              <label className="block text-green-400 mb-1 text-xs">
-                COLOR SHIFT: {effects.colorShift}%
+              <label className="block text-blue-400 text-xs">
+                SHIFT {effects.colorShift}
               </label>
               <input
                 type="range"
@@ -201,20 +200,20 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.colorShift}
                 onChange={(e) => onEffectChange('colorShift', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
           </div>
         </div>
 
         {/* Anaglyph 3D Effects */}
-        <div className="border border-gray-700 p-4 bg-gray-900/50">
-          <h3 className="text-red-400 mb-3 text-sm">ANAGLYPH 3D:</h3>
+        <div className="border border-blue-400 p-2 bg-black">
+          <h3 className="text-yellow-400 mb-2 text-xs">3D:</h3>
           
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div>
-              <label className="block text-red-400 mb-1 text-xs">
-                3D INTENSITY: {effects.anaglyph}%
+              <label className="block text-blue-400 text-xs">
+                DEPTH {effects.anaglyph}
               </label>
               <input
                 type="range"
@@ -222,13 +221,13 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="100"
                 value={effects.anaglyph}
                 onChange={(e) => onEffectChange('anaglyph', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
 
             <div>
-              <label className="block text-red-400 mb-1 text-xs">
-                DEPTH OFFSET: {effects.anaglyphOffset}px
+              <label className="block text-blue-400 text-xs">
+                OFFSET {effects.anaglyphOffset}
               </label>
               <input
                 type="range"
@@ -236,63 +235,58 @@ export const EffectControls: React.FC<EffectControlsProps> = ({
                 max="20"
                 value={effects.anaglyphOffset}
                 onChange={(e) => onEffectChange('anaglyphOffset', parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
+                className="w-full h-1 bg-black border border-blue-400 appearance-none cursor-pointer slider"
               />
             </div>
           </div>
-          
-          <p className="text-xs text-gray-400 mt-2">
-            Use red-blue 3D glasses for best effect
-          </p>
         </div>
 
         {/* CRT Monitor */}
-        <div className="border border-gray-700 p-4 bg-gray-900/50">
-          <label className="flex items-center gap-3 text-blue-400 text-sm cursor-pointer">
+        <div className="border border-blue-400 p-2 bg-black">
+          <label className="flex items-center gap-2 text-blue-400 text-xs cursor-pointer">
             <input
               type="checkbox"
               checked={effects.crtBezel}
               onChange={(e) => onEffectChange('crtBezel', e.target.checked)}
-              className="w-4 h-4 accent-amber-400"
+              className="w-3 h-3 accent-yellow-400"
             />
-            <Monitor className="w-4 h-4" />
-            CRT MONITOR BEZEL
+            CRT BEZEL
           </label>
         </div>
 
         {/* Presets */}
-        <div className="border border-gray-700 p-4 bg-gray-900/50">
-          <h3 className="text-blue-400 mb-3 text-sm">QUICK PRESETS:</h3>
+        <div className="border border-blue-400 p-2 bg-black">
+          <h3 className="text-yellow-400 mb-2 text-xs">PRESETS:</h3>
           <div className="grid grid-cols-2 gap-2">
             <button
               onClick={() => onPreset(presets.mild)}
-              className="px-3 py-2 border border-green-600 text-green-400 hover:bg-green-600 hover:text-black transition-all text-xs"
+              className="px-2 py-1 border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black transition-all text-xs"
             >
-              MILD VHS
+              MILD
             </button>
             <button
               onClick={() => onPreset(presets.heavy)}
-              className="px-3 py-2 border border-red-600 text-red-400 hover:bg-red-600 hover:text-black transition-all text-xs"
+              className="px-2 py-1 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all text-xs"
             >
-              HEAVY GLITCH
+              HEAVY
             </button>
             <button
               onClick={() => onPreset(presets.pixel)}
-              className="px-3 py-2 border border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-black transition-all text-xs"
+              className="px-2 py-1 border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black transition-all text-xs"
             >
-              RETRO PIXEL
+              PIXEL
             </button>
             <button
               onClick={() => onPreset(presets.corrupted)}
-              className="px-3 py-2 border border-yellow-600 text-yellow-400 hover:bg-yellow-600 hover:text-black transition-all text-xs"
+              className="px-2 py-1 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all text-xs"
             >
-              CORRUPTED
+              CORRUPT
             </button>
             <button
               onClick={() => onPreset(presets.anaglyph3d)}
-              className="px-3 py-2 border border-red-600 text-red-400 hover:bg-red-600 hover:text-black transition-all text-xs col-span-2"
+              className="px-2 py-1 border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black transition-all text-xs col-span-2"
             >
-              ANAGLYPH 3D
+              3D
             </button>
           </div>
         </div>

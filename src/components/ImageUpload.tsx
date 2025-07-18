@@ -117,40 +117,30 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ onImageLoad, onClearIm
   };
 
   return (
-    <div className="border border-gray-700 p-4 bg-gray-900/50">
-      <div className="flex items-center justify-between mb-3">
-        <label className="block text-blue-400 text-sm">
-          IMAGE SOURCE
-        </label>
-        {hasImage && (
-          <button
-            onClick={onClearImage}
-            disabled={isValidating}
-            className="px-2 py-1 border border-red-400 text-red-400 hover:bg-red-400 hover:text-black disabled:opacity-50 transition-all text-xs flex items-center gap-1"
-          >
-            <X className="w-3 h-3" />
-            CLEAR
-          </button>
-        )}
-      </div>
-      
+    <div className="border border-blue-400 p-2 bg-black">
+      <div className="flex items-center gap-2">
       <button
         onClick={handleClick}
         disabled={isValidating}
-        className="w-full px-4 py-3 border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm flex items-center justify-center gap-2"
+        className="px-3 py-1 border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-all text-xs"
       >
         {isValidating ? (
-          <>
-            <div className="w-4 h-4 border border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-            VALIDATING...
-          </>
+          'WAIT...'
         ) : (
-          <>
-            <Upload className="w-4 h-4" />
-            {hasImage ? 'REPLACE IMAGE' : 'UPLOAD IMAGE'}
-          </>
+          hasImage ? 'REPLACE' : 'UPLOAD'
         )}
       </button>
+      
+      {hasImage && (
+        <button
+          onClick={onClearImage}
+          disabled={isValidating}
+          className="px-3 py-1 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black disabled:opacity-50 transition-all text-xs"
+        >
+          RESET
+        </button>
+      )}
+      </div>
       
       <input
         ref={fileInputRef}
@@ -162,17 +152,10 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ onImageLoad, onClearIm
       />
       
       {uploadError && (
-        <div className="mt-3 p-2 border border-red-600 bg-red-900/20 text-red-400 text-xs flex items-start gap-2">
-          <AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" />
-          <span>{uploadError}</span>
+        <div className="mt-2 p-1 border border-yellow-400 bg-yellow-400/10 text-yellow-400 text-xs">
+          {uploadError}
         </div>
       )}
-      
-      <div className="text-xs text-gray-400 mt-2 space-y-1">
-        <p className="text-center">JPG, PNG, GIF, WEBP • Max: 50MB</p>
-        <p className="text-center">Recommended: Under 2048×2048px for best performance</p>
-        <p className="text-center">Large images will be automatically resized</p>
-      </div>
     </div>
   );
 };

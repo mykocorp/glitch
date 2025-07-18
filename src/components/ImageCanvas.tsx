@@ -443,60 +443,55 @@ export const ImageCanvas: React.FC<ImageCanvasProps> = ({ originalImage, effects
 
   if (!originalImage) {
     return (
-      <div className="border border-gray-600 p-8 bg-gray-900 text-center">
-        <p className="text-gray-400">No image loaded</p>
+      <div className="border border-blue-400 p-4 bg-black text-center">
+        <p className="text-blue-400 text-xs">NO IMAGE</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl text-amber-400">▸ PROCESSED OUTPUT</h2>
+    <div className="space-y-2">
+      <div className="flex items-center justify-between border-b border-blue-400 pb-1">
+        <h2 className="text-sm text-yellow-400">OUTPUT</h2>
         <div className="flex items-center gap-2">
           {isProcessing && (
-            <div className="text-yellow-400 text-sm flex items-center gap-1">
-              <div className="w-3 h-3 border border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
-              PROCESSING...
+            <div className="text-yellow-400 text-xs">
+              PROC...
             </div>
           )}
           <button
             onClick={downloadImage}
             disabled={isProcessing}
-            className="px-3 py-1 bg-green-600 hover:bg-green-500 disabled:bg-gray-600 transition-all text-sm flex items-center gap-1"
+            className="px-2 py-1 border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black disabled:opacity-50 transition-all text-xs"
           >
-            <Download className="w-4 h-4" />
             SAVE
           </button>
         </div>
       </div>
       
       {error && (
-        <div className="border border-red-600 bg-red-900/20 p-3 text-red-400 text-sm flex items-center gap-2">
-          <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+        <div className="border border-yellow-400 bg-yellow-400/10 p-2 text-yellow-400 text-xs">
           {error}
         </div>
       )}
       
       {imageInfo?.wasResized && (
-        <div className="border border-yellow-600 bg-yellow-900/20 p-3 text-yellow-400 text-sm flex items-center gap-2">
-          <Info className="w-4 h-4 flex-shrink-0" />
-          Image was resized from {imageInfo.original.width}×{imageInfo.original.height}px to {imageInfo.processed.width}×{imageInfo.processed.height}px for performance
+        <div className="border border-blue-400 bg-blue-400/10 p-2 text-blue-400 text-xs">
+          RESIZED: {imageInfo.original.width}x{imageInfo.original.height} -> {imageInfo.processed.width}x{imageInfo.processed.height}
         </div>
       )}
       
-      <div className="border border-gray-600 p-4 bg-gray-900 overflow-auto">
+      <div className="border border-blue-400 p-2 bg-black overflow-auto">
         <canvas
           ref={canvasRef}
-          className="max-w-full max-h-[600px] block mx-auto border border-gray-700"
+          className="max-w-full max-h-[500px] block mx-auto border border-blue-400"
           style={{ imageRendering: 'pixelated' }}
         />
       </div>
       
       {imageInfo && (
-        <div className="text-xs text-gray-400 text-center space-y-1">
-          <p>Original: {imageInfo.original.width} × {imageInfo.original.height}px</p>
-          <p>Processed: {imageInfo.processed.width} × {imageInfo.processed.height}px</p>
+        <div className="text-xs text-blue-400 text-center">
+          {imageInfo.processed.width}x{imageInfo.processed.height}
         </div>
       )}
     </div>
