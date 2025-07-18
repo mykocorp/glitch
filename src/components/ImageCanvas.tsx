@@ -477,7 +477,7 @@ export const ImageCanvas: React.FC<ImageCanvasProps> = ({ originalImage, effects
       
       {imageInfo?.wasResized && (
         <div className="border border-blue-400 bg-blue-400/10 p-2 text-blue-400 text-xs">
-          RESIZED: {imageInfo.original.width}x{imageInfo.original.height} -> {imageInfo.processed.width}x{imageInfo.processed.height}
+          RESIZED: {imageInfo.original.width}x{imageInfo.original.height} {'->'} {imageInfo.processed.width}x{imageInfo.processed.height}
         </div>
       )}
       
